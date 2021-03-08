@@ -14,11 +14,13 @@ import useStyles from "./Product.styles.js";
 
 const Product = ({ product }) => {
   const classes = useStyles();
+  console.log(product);
+
   return (
     <Card className={classes.root}>
       <CardMedia
         className={classes.media}
-        image={product.image}
+        image={product.media.source}
         title={Product.name}
       />
       <CardContent>
@@ -27,12 +29,14 @@ const Product = ({ product }) => {
             {product.name}
           </Typography>
           <Typography variant="h5" gutterBttom>
-            {product.price}
+            {product.price.formatted_with_symbol}
           </Typography>
         </div>
-        <Typography variant="body2" color="textSecondary">
-          {product.description}
-        </Typography>
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          dangerouslySetInnerHTML={{ __html: product.description }}
+        />
       </CardContent>
       <CardActions disableSpacing className={classes.CardActions}>
         <IconButton arial-label="ADD TO CART">
