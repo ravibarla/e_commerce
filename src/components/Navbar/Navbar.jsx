@@ -40,7 +40,7 @@ const Navbar = ({ totalItems }) => {
           {location.pathname === "/" && (
             <div className={classes.button}>
               <IconButton
-                componentt={Link}
+                component={Link}
                 to="/Cart"
                 arial-label="show cart items"
                 color="inherit"
